@@ -1,13 +1,16 @@
 import makeWASocket, { Browsers, WASocket, useMultiFileAuthState } from "@whiskeysockets/baileys";
 
-function main() {
-    let conn: WASocket | undefined;
-    (async () => {
-        const { state, saveCreds } = await useMultiFileAuthState(__dirname + "/session");
-        conn = makeWASocket({ printQRInTerminal: true, auth: state, browser: Browsers.macOS("Desktop"), syncFullHistory: true });
-        conn.ev.on("creds.update", saveCreds);
-    })();
-    return conn;
+var conn: WASocket | undefined;
+
+async function connect() {
+    if (conn) return conn;
+    const { state, saveCreds } = await useMultiFileAuthState(__dirname + "/session");
+    conn = makeWASocket({ printQRInTerminal: true, auth: state });
+    conn.ev.on("creds.update", saveCreds);
 }
 
-export default main();
+connect();
+
+const bot = () => conn;
+
+export { bot, connect };
