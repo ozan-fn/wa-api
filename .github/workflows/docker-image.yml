@@ -31,10 +31,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wa-api:latest
-
-      - name: Log out of Docker Hub
-        uses: docker/logout-action@v3
-
-      - name: Clean up Docker resources
-        run: |
-          docker system prune -af
+          
