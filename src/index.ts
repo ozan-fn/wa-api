@@ -1,7 +1,8 @@
 import Koa from "koa";
 import Router from "@koa/router";
 import { bodyParser } from "@koa/bodyparser";
-import { connect } from "./bot"; // Assuming you have a Bot class or interface in ./bot
+import { connect } from "./bot";
+import * as emoji from "node-emoji";
 
 const app = new Koa();
 const router = new Router();
@@ -24,7 +25,7 @@ async function main() {
     router.post("/send-message", async (ctx) => {
         const { phoneNumber, text } = ctx.request.body;
         try {
-            const response = await bot.sendMessage(`${phoneNumber}@s.whatsapp.net`, { text });
+            const response = await bot.sendMessage(`${phoneNumber}@s.whatsapp.net`, { text: emoji.emojify(text) });
             ctx.body = { success: true, response };
         } catch (error) {
             if (error instanceof Error) {
