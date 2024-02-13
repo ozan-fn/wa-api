@@ -2,12 +2,9 @@
   "dependencies": {
     "@koa/bodyparser": "^5.0.0",
     "@koa/router": "^12.0.1",
-    "@types/node": "^20.11.17",
     "@whiskeysockets/baileys": "^6.6.0",
-    "emoji-js": "^3.8.0",
     "koa": "^2.15.0",
     "node-emoji": "^2.1.3",
-    "pino": "^8.18.0",
     "qrcode-terminal": "^0.12.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
@@ -16,12 +13,10 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "devDependencies": {
+    "@types/node": "^20.11.17",
     "@types/emoji-js": "^3.5.2",
     "@types/koa": "^2.14.0",
     "@types/koa__router": "^12.0.4"
-  },
-  "resolutions": {
-    "pino": "^7.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
