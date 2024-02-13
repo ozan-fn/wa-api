@@ -1,5 +1,3 @@
-# API Panduan
-
 ## Endpoint: POST /send-message
 
 Endpoint ini digunakan untuk mengirim pesan teks melalui API.
